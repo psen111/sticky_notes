@@ -8,9 +8,7 @@ const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author
     const groupInputRef = useRef(null);
 
     const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#bf6fff", "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"];
-    const getRandomColor = () => {
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
+    
 
     if (text === "") {
         // make it content editable
