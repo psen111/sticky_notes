@@ -30,7 +30,7 @@ code {
 }
 
 .note:hover {
-  transform: scale(1.06) rotateZ(0deg);
+  transform: scale(1.03) rotateZ(0deg);
 }
 
 textarea {
@@ -74,7 +74,7 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform: rotateZ(2deg);
+  
   box-shadow: -2px 2px 8px 2px hsla(0, 0%, 0%, 0.2);
   margin: 5px;
 }
