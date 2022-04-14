@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.bg-container {
+  background-color: gray;
+  height: 100vh;
+}
+
+.note.new {
+  background-color: rgb(121, 135, 239);
+}
+
+.note:hover {
+  transform: scale(1.06) rotateZ(0deg);
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: rgb(121, 135, 239);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.delete-icon {
+  cursor: pointer;
+}
+
+.save {
+  background-color: #e2f0f1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+  background-color: #c0dddf;
+  cursor: pointer;
+}
+
+.notes-list {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.note {
+
+  white-space: pre-wrap;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotateZ(2deg);
+  box-shadow: -2px 2px 8px 2px hsla(0, 0%, 0%, 0.2);
+  margin: 5px;
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: darkgrey;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 1.5em;
+}
+
+.search input {
+  border: none;
+  background-color: darkgrey;
+
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.sidebar-menu {
+  background-color: gray;
+  border: none;
+  font-size: 30px;
+  color: rgb(234, 229, 229);
+}
+
+.sidebar {
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: white;
+  padding: 10px;
+}
+
+.user-icon {
+  font-size: 30px;
+  color: #d3d0d0;
+  margin-right: 5px;
+}
+
+.sidebar-icons {
+  cursor: pointer;
+  border: none;
+  background-color: coral;
+  /* background-image: linear-gradient(315deg, #000000 0%, #414141 74%); */
+  color: white;
+  opacity: 0.3;
+
+}
+
+.sidebar-icons:hover {
+  color: #c0b9b9;
+
+}
