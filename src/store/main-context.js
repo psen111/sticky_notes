@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 const notes = [
     {
-        id: nanoid(),
+        id: 1,
         text: "This is my first note",
         date: "13/04/2022",
         group: "1",
@@ -10,7 +10,7 @@ const notes = [
         colorIdx: 0
     },
     {
-        id: nanoid(),
+        id: 2,
         text: "This is my second note",
         date: "13/04/2022",
         group: "2",
@@ -18,7 +18,7 @@ const notes = [
         colorIdx: 1
     },
     {
-        id: nanoid(),
+        id: 3,
         text: "This is my third note",
         date: "13/04/2022",
         group: "3",
@@ -32,7 +32,8 @@ const AllnotesContext = createContext({
     totalnotes: 0,
     addNote: (text, group) => { },
     saveNote: (newNote) => { },
-    deleteNode: (id) => { },
+    deleteNodes: (id) => { },
+    setnotes: (newnotes) => { }
 
 });
 
@@ -63,14 +64,34 @@ export function AllnotesContextProvider(props) {
             colorIdx: Math.floor(Math.random() * 10)
         };
 
+
         const newNotes = [...userAllnotes, newNote];
+        console.log(newNotes);
         setNotes(newNotes);
     }
 
-    const deleteNode = (id) => {
-        const newNotes = notes.filter((note) => note.id !== id);
-        setNotes(newNotes);
+    // const deleteNodes = (id) => {
+    //     console.log("deleting note, id: ", id);
+    //     // // const newNotes = ;
+    //     // // console.log(newNotes);
+    //     // setNotes((prev) => { prev.filter((note) => note.id !== id) });
+    //     //remove the note from the array having the id 
+    //     for (let i = 0; i < userAllnotes.length; i++) {
+    //         if (userAllnotes[i].id === id) {
+    //             userAllnotes.splice(i, 1);
+    //         }
+    //     }
+    //     setNotes(userAllnotes);
+    // }
+    const setnotes = (newnotes) => {
+        setNotes(newnotes);
     }
+    const deleteNodes = (id) => {
+
+        setNotes(prevUserAllNotes => {
+            return prevUserAllNotes.filter(note => note.id !== id);
+        });
+    };
     //create a function to edit a project
     const saveNote = (newNote) => {
         //print all the newNote values
@@ -92,9 +113,9 @@ export function AllnotesContextProvider(props) {
         notes: userAllnotes,
         totalnotes: userAllnotes.length,
         addNote: addNote,
-        deleteNode: deleteNode,
+        deleteNode: deleteNodes,
         saveNote: saveNote,
-
+        setnotes: setnotes
 
     };
 

@@ -2,13 +2,13 @@ import { AiFillDelete } from "react-icons/ai";
 import { useRef } from 'react';
 import { default as D } from 'react-draggable';
 
-const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author, coloridx }) => {
+const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, group, author, coloridx }) => {
     const authorInputRef = useRef(null);
     const textInputRef = useRef(null);
     const groupInputRef = useRef(null);
 
-    const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#bf6fff", "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"];
-    
+    const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#bf6fff", "#a0c4ff", "#bdb2ff", "#ffc6ff"];
+
 
     if (text === "") {
         // make it content editable
@@ -64,15 +64,46 @@ const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author
 
     }
     return (
-        <D>
+        !isgrouped ?
+            <D>
+
+                <div style={{
+                    backgroundColor: colors[coloridx],
+                }} className="note" >
+                    <div>
+                        <div className="d-flex align-items-center justify-content-between">
+                            <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
+                            <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~By {author}</small>
+                        </div>
+                        <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
+                    </div>
+
+
+                    <div className="note-footer">
+                        <div className="d-flex justify-content-between">
+                            <small>{date}</small>
+                        </div>
+
+                        <AiFillDelete
+                            className="delete-icon"
+                            size='1.3em'
+                            onClick={() => handleDeleteNode(id)}
+                        />
+
+                    </div>
+
+                </div >
+            </D>
+            :
+
 
             <div style={{
                 backgroundColor: colors[coloridx],
             }} className="note" >
                 <div>
                     <div className="d-flex align-items-center justify-content-between">
-                    <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
-                    <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~By {author}</small>
+                        <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
+                        <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~By {author}</small>
                     </div>
                     <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
                 </div>
@@ -92,7 +123,7 @@ const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author
                 </div>
 
             </div >
-        </D>
+
     );
 }
 
