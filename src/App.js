@@ -1,5 +1,5 @@
 import NotesList from "./Components/NotesList";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Header from "./Components/Header";
 import { useContext } from 'react';
 import AllnotesContext from "./store/main-context";
