@@ -6,7 +6,7 @@ const notes = [
         text: "This is my first note",
         date: "13/04/2022",
         group: "1",
-        author: "bewda",
+        author: "Joseph",
         colorIdx: 0
     },
     {
@@ -14,7 +14,7 @@ const notes = [
         text: "This is my second note",
         date: "13/04/2022",
         group: "2",
-        author: "lassan",
+        author: "Maverick",
         colorIdx: 1
     },
     {
@@ -22,7 +22,7 @@ const notes = [
         text: "This is my third note",
         date: "13/04/2022",
         group: "3",
-        author: "purteek",
+        author: "Brock",
         colorIdx: 2
     }
 ];

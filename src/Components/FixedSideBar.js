@@ -45,27 +45,27 @@ export default class Fixedsidebar extends React.Component {
                     </div>
                     <hr className='mb-3' />
 
-                    <button className='d-inline d-flex align-items-center mb-2 sidebar-icons'>
+                    <button className=' d-flex align-items-center mb-2 sidebar-icons'>
                         <AiOutlineHome className='user-icon' />
                         <small>Home</small>
                     </button>
-                    <button className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
+                    <button className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <FaRegUserCircle className='user-icon' />
                         <small>Profile</small>
                     </button>
-                    <button className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
+                    <button className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <BsKey className='user-icon' />
                         <small>Log in/ Sign up</small>
                     </button>
 
 
-                    <button onClick={this.switchGroup} className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
+                    <button onClick={this.switchGroup} className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <MdOutlineHighlight className='user-icon' />
                         {!this.props.isgrouped ? <small>Group Highlights</small> : <small> Ungroup Highlights</small>}
                     </button>
 
 
-                    <button onClick={this.sortNotes} className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
+                    <button onClick={this.sortNotes} className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <BiSort className='user-icon' />
                         <small>Sort</small>
                     </button>
