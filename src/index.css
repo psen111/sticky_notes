@@ -105,10 +105,10 @@ textarea:focus {
 }
 
 .sidebar-menu {
-  background-color: gray;
+  background-color: rgb(245, 240, 240);
   border: none;
   font-size: 30px;
-  color: rgb(234, 229, 229);
+  color: rgb(62, 61, 61);
 }
 
 .sidebar {
