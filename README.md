@@ -1,3 +1,15 @@
+# Steps to install on your desktop
+1. Clone this repository on your desktop in a particular folder.
+2. Run "npm install" command to install dependencies.
+3. Run "npm start" command to start the application.
+
+# Video of the application
+https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing
+
+# High Level Architecture
+![image](https://drive.google.com/file/d/1YXL29KknXFs6NOQuGyYN__ctbkguMbje/view?usp=sharing)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
