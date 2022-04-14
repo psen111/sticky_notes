@@ -7,7 +7,7 @@
 https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing
 
 # High Level Architecture
-![image](https://drive.google.com/file/d/1YXL29KknXFs6NOQuGyYN__ctbkguMbje/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1YXL29KknXFs6NOQuGyYN__ctbkguMbje)
 
 
 # Getting Started with Create React App
