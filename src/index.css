@@ -71,7 +71,8 @@ textarea:focus {
 .note {
   white-space: pre-wrap;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.7rem;
+  
   min-height: 170px;
   display: flex;
   flex-direction: column;

@@ -71,15 +71,18 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
                     <div>
                         <div className="d-flex align-items-center justify-content-between">
                             <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
-                            <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~By {author}</small>
+                            <small>{date}</small>
                         </div>
                         <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
                     </div>
 
-
+                    
                     <div className="note-footer">
+                    
                         <div className="d-flex justify-content-between">
-                            <small>{date}</small>
+                            
+                            <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~ {author}</small>
+
                         </div>
 
                         <AiFillDelete
@@ -101,7 +104,7 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
                 <div>
                     <div className="d-flex align-items-center justify-content-between">
                         <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
-                        <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~By {author}</small>
+                        <small>{date}</small>
                     </div>
                     <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
                 </div>
@@ -109,7 +112,8 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
 
                 <div className="note-footer">
                     <div className="d-flex justify-content-between">
-                        <small>{date}</small>
+                        
+                        <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~ {author}</small>
                     </div>
 
                     <AiFillDelete
