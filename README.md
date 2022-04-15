@@ -4,7 +4,7 @@
 3. Run "npm start" command to start the application.
 
 # Video of the application
-(https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing){:target="_blank" rel="noopener"}
+(https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing) {:target="_blank" rel="noopener"}
 
 # Deploy Link
 https://main--relaxed-marshmallow-a2c8d0.netlify.app/
