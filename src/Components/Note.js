@@ -9,7 +9,6 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
 
     const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#bf6fff", "#a0c4ff", "#bdb2ff", "#ffc6ff"];
 
-
     if (text === "") {
         // make it content editable
         //  textInputRef.current.setAttribute("contenteditable", "true");
@@ -47,7 +46,6 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
 
         event.target.contentEditable = "true";
         authorInputRef.current.focus();
-
 
     }
     function ondb1(event) {
