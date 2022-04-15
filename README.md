@@ -4,7 +4,6 @@
 3. Run "npm start" command to start the application.
 
 # Video of the application
-<a href="https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing" target="_blank">https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing</a>
 https://drive.google.com/drive/folders/1zLX8rbvtqlDTVkRJwM6Vt3XjoPdAYox2?usp=sharing
 
 # Deploy Link
