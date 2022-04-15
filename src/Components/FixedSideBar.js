@@ -8,7 +8,6 @@ import { RiStickyNoteLine } from 'react-icons/ri'
 import { MdOutlineHighlight } from 'react-icons/md'
 import { BiSort } from 'react-icons/bi'
 
-
 export default class Fixedsidebar extends React.Component {
 
     toggleSideBar = () => {
@@ -41,34 +40,34 @@ export default class Fixedsidebar extends React.Component {
                 <SideBar className="sidebar" ref={(sidebar => { this.sidebar = sidebar; })}>
                     <div style={{ cursor: 'pointer' }} className='d-flex align-items-center'>
                         <RiStickyNoteLine style={{ color: 'white' }} className='user-icon' />
-                        <h2>Notes</h2>
+                        <h2>eNotes</h2>
                     </div>
                     <hr className='mb-3' />
 
-                    <button className=' d-flex align-items-center mb-2 sidebar-icons'>
+                    <div className=' d-flex align-items-center mb-2 sidebar-icons'>
                         <AiOutlineHome className='user-icon' />
                         <small>Home</small>
-                    </button>
-                    <button className=' d-flex align-items-center mb-2 sidebar-icons' >
+                    </div>
+                    <div className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <FaRegUserCircle className='user-icon' />
                         <small>Profile</small>
-                    </button>
-                    <button className=' d-flex align-items-center mb-2 sidebar-icons' >
+                    </div>
+                    <div className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <BsKey className='user-icon' />
                         <small>Log in/ Sign up</small>
-                    </button>
+                    </div>
 
 
-                    <button onClick={this.switchGroup} className=' d-flex align-items-center mb-2 sidebar-icons' >
+                    <div onClick={this.switchGroup} className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <MdOutlineHighlight className='user-icon' />
                         {!this.props.isgrouped ? <small>Group Highlights</small> : <small> Ungroup Highlights</small>}
-                    </button>
+                    </div>
 
 
-                    <button onClick={this.sortNotes} className=' d-flex align-items-center mb-2 sidebar-icons' >
+                    <div onClick={this.sortNotes} className=' d-flex align-items-center mb-2 sidebar-icons' >
                         <BiSort className='user-icon' />
                         <small>Sort</small>
-                    </button>
+                    </div>
                 </SideBar>
             </div>
         );
