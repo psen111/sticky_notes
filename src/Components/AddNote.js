@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import {GrClose} from "react-icons/gr";
 
 const AddNote=(props)=>{
 
@@ -27,11 +28,18 @@ const AddNote=(props)=>{
         }   
     }
 
+    const handleCloseClick=()=>{
+        props.setShowingAddNote(false);
+    }
+
     return(
         <div className="note new">
+                
+                {/* <GrClose style={{float: 'right'}} /> */}
+
             <textarea rows="2" cols="10" placeholder="Type group name" value={group} onChange={handleGroupChange} ></textarea>
             <textarea rows="2" cols="10" placeholder="Type author name" value={author} onChange={handleAuthorChange} ></textarea>
-
+            
             <textarea 
                 rows="4" 
                 cols="10" 
@@ -41,7 +49,9 @@ const AddNote=(props)=>{
                 ></textarea>
             <div className="note-footer">
                 
-                <button className="save" onClick={handleSaveClick}>Save</button>
+                <button className="save"  style={{marginRight: '5px'}} onClick={handleSaveClick}>Save</button>
+                <button className="save" style={{marginRight: '5px'}} onClick={handleCloseClick}>Close</button>
+
             </div>
         </div>
     );

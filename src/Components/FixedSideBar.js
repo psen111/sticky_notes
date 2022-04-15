@@ -2,7 +2,7 @@ import React from 'react';
 import SideBar from 'react-fixed-sidebar';
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { FaRegUserCircle } from 'react-icons/fa'
-import { AiOutlineHome } from 'react-icons/ai'
+import { AiOutlineHome, AiFillFileAdd } from 'react-icons/ai'
 import { BsKey } from 'react-icons/bs'
 import { RiStickyNoteLine } from 'react-icons/ri'
 import { MdOutlineHighlight } from 'react-icons/md'
@@ -22,8 +22,18 @@ export default class Fixedsidebar extends React.Component {
         this.props.setG(!this.props.isgrouped);
     }
 
+    handleHomeClick = ()=>{
+        this.toggleSideBar();
+        this.props.setG(false);
+    }
+
     sortNotes = ()=>{
         this.toggleSideBar();
+    }
+
+    showsAddNotes = ()=>{
+        this.toggleSideBar();
+        this.props.setShowingAddNote(true);
     }
 
     render() {
@@ -44,7 +54,7 @@ export default class Fixedsidebar extends React.Component {
                     </div>
                     <hr className='mb-3' />
 
-                    <div className=' d-flex align-items-center mb-2 sidebar-icons'>
+                    <div onClick={this.handleHomeClick} className=' d-flex align-items-center mb-2 sidebar-icons'>
                         <AiOutlineHome className='user-icon' />
                         <small>Home</small>
                     </div>
@@ -68,6 +78,12 @@ export default class Fixedsidebar extends React.Component {
                         <BiSort className='user-icon' />
                         <small>Sort</small>
                     </div>
+
+                    <div onClick={this.showsAddNotes} className="d-flex align-items-center sidebar-icons">
+                        <AiFillFileAdd className='user-icon'/> 
+                        <small>Add Note</small>
+                    </div>
+
                 </SideBar>
             </div>
         );

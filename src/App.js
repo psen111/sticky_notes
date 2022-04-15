@@ -27,7 +27,12 @@ const App = () => {
   }
 
   const [searchText, setSearchText] = useState('');
+  const[showAddNote, setShowAddNote] = useState(false);
   const [noteByGroup, setNotebyGroup] = useState([]);
+
+  function showAddNoteHandler(show){
+    setShowAddNote(show);
+  }
 
   useEffect(() => {
     //make a list of objects with group as key and list of notes as value
@@ -105,18 +110,19 @@ const App = () => {
 
         }}
       >
+        <div className="main-container">
         <div className="bg-container">
           <div className="container">
-            <Header isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
-
+            <Header showingAddNote={showAddNote} setShowingAddNote={showAddNoteHandler}  isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
             <NotesList isgrouped={grouped} notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
               handleAddNote={notesContext.addNote}
               handleDeleteNode={notesContext.deleteNode}
               editNote={notesContext.saveNote}
               group={null}
             />
-            <AddNote handleAddNote={notesContext.addNote} />
+            {showAddNote ? <AddNote setShowingAddNote={showAddNoteHandler}  handleAddNote={notesContext.addNote} /> : <></>}
           </div>
+        </div>
         </div>
       </DragDropContext>
       :
@@ -131,9 +137,10 @@ const App = () => {
           reorderafterdrag(reorderRows(noteByGroup, source, destination));
         }}
       >
+        <div className="main-container">
         <div className="bg-container">
           <div className="container">
-            <Header isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
+            <Header showingAddNote={showAddNote} setShowingAddNote={showAddNoteHandler} isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
 
             {noteByGroup.map((noterow) => {
               return (
@@ -147,9 +154,10 @@ const App = () => {
                 />
               );
             })}
-            <AddNote handleAddNote={notesContext.addNote} />
+            { showAddNote ? <AddNote setShowingAddNote={showAddNoteHandler} handleAddNote={notesContext.addNote} /> : <></>}
 
           </div>
+        </div>
         </div>
       </DragDropContext>
 

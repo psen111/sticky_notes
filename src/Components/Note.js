@@ -79,17 +79,15 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
                     
                     <div className="note-footer">
                     
-                        <div className="d-flex justify-content-between">
+                        {/* <div className="d-flex justify-content-between"> */}
                             
                             <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~ {author}</small>
-
-                        </div>
-
+                        
+                        {/* </div> */}
                         <AiFillDelete
                             className="delete-icon"
                             size='1.3em'
-                            onClick={() => handleDeleteNode(id)}
-                        />
+                            onClick={() => handleDeleteNode(id)}/>
 
                     </div>
 
@@ -114,13 +112,16 @@ const Note = ({ isgrouped, editNoteHandler, id, text, date, handleDeleteNode, gr
                     <div className="d-flex justify-content-between">
                         
                         <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>~ {author}</small>
+                        
                     </div>
-
+                    
                     <AiFillDelete
                         className="delete-icon"
                         size='1.3em'
                         onClick={() => handleDeleteNode(id)}
                     />
+
+                    
 
                 </div>
 
