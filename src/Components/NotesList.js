@@ -8,7 +8,8 @@ const NotesList = ({ isgrouped, notes, handleAddNote, handleDeleteNode, editNote
     return (
         isgrouped ?
 
-            <div>
+            <div className="checking">
+                <h3 className="text-center">Group {group}</h3>
                 <Droppable
                     droppableId={group}
                     direction="horizontal"
