@@ -34,8 +34,6 @@ const AddNote=(props)=>{
 
     return(
         <div className="note new">
-                
-                {/* <GrClose style={{float: 'right'}} /> */}
 
             <textarea rows="2" cols="10" placeholder="Type group name" value={group} onChange={handleGroupChange} ></textarea>
             <textarea rows="2" cols="10" placeholder="Type author name" value={author} onChange={handleAuthorChange} ></textarea>

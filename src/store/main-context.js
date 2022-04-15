@@ -1,30 +1,30 @@
 import { createContext, useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 const notes = [
-    {
-        id: 1,
-        text: "This is my first note",
-        date: "13/04/2022",
-        group: "1",
-        author: "Joseph",
-        colorIdx: 0
-    },
-    {
-        id: 2,
-        text: "This is my second note",
-        date: "13/04/2022",
-        group: "2",
-        author: "Maverick",
-        colorIdx: 1
-    },
-    {
-        id: 3,
-        text: "This is my third note",
-        date: "13/04/2022",
-        group: "3",
-        author: "Brock",
-        colorIdx: 2
-    }
+    // {
+    //     id: 1,
+    //     text: "This is my first note",
+    //     date: "13/04/2022",
+    //     group: "1",
+    //     author: "Joseph",
+    //     colorIdx: 0
+    // },
+    // {
+    //     id: 2,
+    //     text: "This is my second note",
+    //     date: "13/04/2022",
+    //     group: "2",
+    //     author: "Maverick",
+    //     colorIdx: 1
+    // },
+    // {
+    //     id: 3,
+    //     text: "This is my third note",
+    //     date: "13/04/2022",
+    //     group: "3",
+    //     author: "Brock",
+    //     colorIdx: 2
+    // }
 ];
 
 const AllnotesContext = createContext({
@@ -61,7 +61,7 @@ export function AllnotesContextProvider(props) {
             group: group,
             author: author,
             //take a random no between 0 and 9
-            colorIdx: Math.floor(Math.random() * 10)
+            colorIdx: Math.floor(Math.random() * 8)
         };
 
 

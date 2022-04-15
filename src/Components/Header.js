@@ -9,10 +9,14 @@ const Header = (props) => {
         props.setShowingAddNote(true);
     }
 
+    const handleHomeClick = ()=>{
+        props.setGrouped(false);
+    }
+
     return (
         <nav className="navbar">
             <div className="container-fluid">
-                <h1 className="navbar-brand ">eNotes</h1>
+                <h1 style={{cursor: 'pointer'}} onClick={handleHomeClick} className="navbar-brand ">eNotes</h1>
                 <div className="d-flex align-items-center">
                     <button onClick={showsAddNotes} type="button" style={{marginRight: '5px'}} className="btn btn-primary">Add Note</button>
                     <form className="d-flex">

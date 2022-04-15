@@ -101,6 +101,7 @@ const App = () => {
 
   return (
     !grouped ?
+
       <DragDropContext
         onDragEnd={({ destination, source }) => {
           // // dropped outside the list
@@ -110,10 +111,21 @@ const App = () => {
 
         }}
       >
+
         <div className="main-container">
         <div className="bg-container">
+          
           <div className="container">
             <Header showingAddNote={showAddNote} setShowingAddNote={showAddNoteHandler}  isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
+            {(notes.length===0 && !showAddNote) ?
+            <>
+              <div className="img-container">
+              <img className="image-test" src="https://res.cloudinary.com/djbyqrhy9/image/upload/v1650054084/sticky_p04dhc.png"/>
+            </div> 
+            </>
+
+            :
+            <>
             <NotesList isgrouped={grouped} notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
               handleAddNote={notesContext.addNote}
               handleDeleteNode={notesContext.deleteNode}
@@ -121,6 +133,7 @@ const App = () => {
               group={null}
             />
             {showAddNote ? <AddNote setShowingAddNote={showAddNoteHandler}  handleAddNote={notesContext.addNote} /> : <></>}
+            </>}
           </div>
         </div>
         </div>
