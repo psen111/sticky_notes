@@ -6,7 +6,8 @@ import AllnotesContext from "./store/main-context";
 import AddNote from "./Components/AddNote";
 import { DragDropContext } from "react-beautiful-dnd";
 import { reorderRows } from "./Components/Reorder";
-
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 const App = () => {
   const notesContext = useContext(AllnotesContext);
   //create  a usestate to track sorted or not
@@ -29,7 +30,7 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
   const[showAddNote, setShowAddNote] = useState(false);
   const [noteByGroup, setNotebyGroup] = useState([]);
-
+  
   function showAddNoteHandler(show){
     setShowAddNote(show);
   }
