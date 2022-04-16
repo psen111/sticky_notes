@@ -6,6 +6,7 @@ import AllnotesContext from "./store/main-context";
 import AddNote from "./Components/AddNote";
 import { DragDropContext } from "react-beautiful-dnd";
 import { reorderRows } from "./Components/Reorder";
+// import { margin } from "@mui/system";
 
 const App = () => {
   const notesContext = useContext(AllnotesContext);
@@ -114,14 +115,22 @@ const App = () => {
               className="container"
             />
             {notes.length === 0 && !showAddNote ? (
-              <>
+              <div className="d-flex align-items-center">
+                <h1
+                  style={{ fontSize: "50px", marginLeft: "60px" }}
+                  className="navbar-brand"
+                >
+                  Welcome to <br />
+                  NotesVerse
+                </h1>
                 <div className="img-container">
                   <img
                     className="image-test"
                     src="https://res.cloudinary.com/djbyqrhy9/image/upload/v1650054084/sticky_p04dhc.png"
+                    alt="Click on add note to create new note"
                   />
                 </div>
-              </>
+              </div>
             ) : (
               <>
                 <NotesList
