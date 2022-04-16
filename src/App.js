@@ -1,13 +1,12 @@
 import NotesList from "./Components/NotesList";
 import { useState, useEffect } from "react";
 import Header from "./Components/Header";
-import { useContext } from 'react';
+import { useContext } from "react";
 import AllnotesContext from "./store/main-context";
 import AddNote from "./Components/AddNote";
 import { DragDropContext } from "react-beautiful-dnd";
 import { reorderRows } from "./Components/Reorder";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
 const App = () => {
   const notesContext = useContext(AllnotesContext);
   //create  a usestate to track sorted or not
@@ -27,18 +26,18 @@ const App = () => {
     setGroup(isg);
   }
 
-  const [searchText, setSearchText] = useState('');
-  const[showAddNote, setShowAddNote] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [showAddNote, setShowAddNote] = useState(false);
   const [noteByGroup, setNotebyGroup] = useState([]);
-  
-  function showAddNoteHandler(show){
+
+  function showAddNoteHandler(show) {
     setShowAddNote(show);
   }
 
   useEffect(() => {
     //make a list of objects with group as key and list of notes as value
     const noteByGroup = [];
-    const groups = []
+    const groups = [];
     notes.map((note) => {
       //if group already exists in groups
       if (!groups.includes(note.group)) {
@@ -65,10 +64,8 @@ const App = () => {
     setNotebyGroup(noteByGroup);
   }, [notes]);
 
-
-
   const reorderafterdrag = (notebyGroupAfterDrag) => {
-    const newnotes = []
+    const newnotes = [];
     //iterate over notebyGroupAfterDrag
     notebyGroupAfterDrag.map((g) => {
       //iterate over group.values
@@ -77,8 +74,7 @@ const App = () => {
         //check if note.group is same as g.id
         if (note.group === g.id) {
           newnotes.push(note);
-        }
-        else {
+        } else {
           //create a new note with same id and group as g.id
           const newNote = {
             id: note.id,
@@ -86,7 +82,7 @@ const App = () => {
             group: g.id,
             author: note.author,
             date: note.date,
-            colorIdx: note.colorIdx
+            colorIdx: note.colorIdx,
           };
           newnotes.push(newNote);
         }
@@ -95,72 +91,92 @@ const App = () => {
       return newnotes;
     });
     notesContext.setnotes(newnotes);
-  }
+  };
 
-
-
-
-  return (
-    !grouped ?
-
-      <DragDropContext
-        onDragEnd={({ destination, source }) => {
-          // // dropped outside the list
-          if (!destination) {
-            return;
-          }
-
-        }}
-      >
-
-        <div className="main-container">
+  return !grouped ? (
+    <DragDropContext
+      onDragEnd={({ destination, source }) => {
+        // // dropped outside the list
+        if (!destination) {
+          return;
+        }
+      }}
+    >
+      <div className="main-container">
         <div className="bg-container">
-          
           <div className="container">
-            <Header showingAddNote={showAddNote} setShowingAddNote={showAddNoteHandler}  isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
-            {(notes.length===0 && !showAddNote) ?
-            <>
-              <div className="img-container">
-              <img className="image-test" src="https://res.cloudinary.com/djbyqrhy9/image/upload/v1650054084/sticky_p04dhc.png"/>
-            </div> 
-            </>
-
-            :
-            <>
-            <NotesList isgrouped={grouped} notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
-              handleAddNote={notesContext.addNote}
-              handleDeleteNode={notesContext.deleteNode}
-              editNote={notesContext.saveNote}
-              group={null}
+            <Header
+              showingAddNote={showAddNote}
+              setShowingAddNote={showAddNoteHandler}
+              isgrouped={grouped}
+              setGrouped={setGroupHandler}
+              handleSearchNote={setSearchText}
+              className="container"
             />
-            {showAddNote ? <AddNote setShowingAddNote={showAddNoteHandler}  handleAddNote={notesContext.addNote} /> : <></>}
-            </>}
+            {notes.length === 0 && !showAddNote ? (
+              <>
+                <div className="img-container">
+                  <img
+                    className="image-test"
+                    src="https://res.cloudinary.com/djbyqrhy9/image/upload/v1650054084/sticky_p04dhc.png"
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <NotesList
+                  isgrouped={grouped}
+                  notes={notes.filter((note) =>
+                    note.text.toLowerCase().includes(searchText)
+                  )}
+                  handleAddNote={notesContext.addNote}
+                  handleDeleteNode={notesContext.deleteNode}
+                  editNote={notesContext.saveNote}
+                  group={null}
+                />
+                {showAddNote ? (
+                  <AddNote
+                    setShowingAddNote={showAddNoteHandler}
+                    handleAddNote={notesContext.addNote}
+                  />
+                ) : (
+                  <></>
+                )}
+              </>
+            )}
           </div>
         </div>
-        </div>
-      </DragDropContext>
-      :
-      //else traverse through the groupedNotes object and render the notes
-      <DragDropContext
-        onDragEnd={({ destination, source }) => {
-          // // dropped outside the list
-          if (!destination) {
-            return;
-          }
+      </div>
+    </DragDropContext>
+  ) : (
+    //else traverse through the groupedNotes object and render the notes
+    <DragDropContext
+      onDragEnd={({ destination, source }) => {
+        // // dropped outside the list
+        if (!destination) {
+          return;
+        }
 
-          reorderafterdrag(reorderRows(noteByGroup, source, destination));
-        }}
-      >
-        <div className="main-container">
+        reorderafterdrag(reorderRows(noteByGroup, source, destination));
+      }}
+    >
+      <div className="main-container">
         <div className="bg-container">
           <div className="container">
-            <Header showingAddNote={showAddNote} setShowingAddNote={showAddNoteHandler} isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
+            <Header
+              showingAddNote={showAddNote}
+              setShowingAddNote={showAddNoteHandler}
+              isgrouped={grouped}
+              setGrouped={setGroupHandler}
+              handleSearchNote={setSearchText}
+              className="container"
+            />
 
             {noteByGroup.map((noterow) => {
               return (
-                <NotesList isgrouped={grouped}
+                <NotesList
+                  isgrouped={grouped}
                   notes={noterow.values}
-
                   handleAddNote={notesContext.addNote}
                   handleDeleteNode={notesContext.deleteNode}
                   editNote={notesContext.saveNote}
@@ -168,16 +184,19 @@ const App = () => {
                 />
               );
             })}
-            { showAddNote ? <AddNote setShowingAddNote={showAddNoteHandler} handleAddNote={notesContext.addNote} /> : <></>}
-
+            {showAddNote ? (
+              <AddNote
+                setShowingAddNote={showAddNoteHandler}
+                handleAddNote={notesContext.addNote}
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
-        </div>
-      </DragDropContext>
-
-  )
-
-
-}
+      </div>
+    </DragDropContext>
+  );
+};
 
 export default App;
