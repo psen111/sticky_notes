@@ -48,8 +48,8 @@ export default class Fixedsidebar extends React.Component {
                     <GiHamburgerMenu />
                 </button>
                 <SideBar className="sidebar" ref={(sidebar => { this.sidebar = sidebar; })}>
-                    <div style={{ cursor: 'pointer' }} className='d-flex align-items-center'>
-                        <RiStickyNoteLine style={{ color: 'white' }} className='user-icon' />
+                    <div style={{ cursor: 'pointer' }} className='d-flex align-items-center logo'>
+                        <RiStickyNoteLine style={{ color: 'white' }} className='user-icon logo' />
                         <h2>eNotes</h2>
                     </div>
                     <hr className='mb-3' />
